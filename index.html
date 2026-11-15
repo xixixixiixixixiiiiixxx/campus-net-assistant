@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F7FA">
+<title>松山湖校区学生网络排障助手</title>
+<meta name="description" content="广东科技学院松山湖校区学生校园 Wi-Fi、VPN 密码、WebVPN 排障助手。依据校方公开资料和对照观察给出下一步，标注来源与未知项。">
+<link rel="stylesheet" href="./assets/styles.css">
+<link rel="stylesheet" href="./assets/visual.css">
+<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+</head>
+<body>
+<a class="skip-link" href="#view">跳到主要内容</a>
+
+<div class="app">
+  <header class="topbar">
+    <button class="brand" type="button" data-action="home" aria-label="返回网络助手首页">
+      <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M140,204a12,12,0,1,1-12-12A12,12,0,0,1,140,204ZM237.08,87A172,172,0,0,0,18.92,87,8,8,0,0,0,29.08,99.37a156,156,0,0,1,197.84,0A8,8,0,0,0,237.08,87ZM205,122.77a124,124,0,0,0-153.94,0A8,8,0,0,0,61,135.31a108,108,0,0,1,134.06,0,8,8,0,0,0,11.24-1.3A8,8,0,0,0,205,122.77Zm-32.26,35.76a76.05,76.05,0,0,0-89.42,0,8,8,0,0,0,9.42,12.94,60,60,0,0,1,70.58,0,8,8,0,1,0,9.42-12.94Z"/></svg></span>
+      <span class="brand__text">
+        <strong>校园网络助手</strong>
+        <small>松山湖校区 · 学生版</small>
+      </span>
+    </button>
+    <nav class="topbar__nav" aria-label="主要功能">
+      <span class="topbar__current" aria-current="page">问题排查</span>
+      <a href="campus-connect/index.html">连接助手</a>
+      <button type="button" class="topbar__action" data-action="speedtest-open" aria-haspopup="dialog">网络测速</button>
+    </nav>
+    <button type="button" class="btn btn--ghost btn--sm" id="btn-restart" hidden>重新开始</button>
+  </header>
+
+  <main class="layout layout--chat">
+    <section class="stage stage--chat">
+      <ol class="steps-bar" id="steps-bar" hidden aria-label="排查进度"></ol>
+      <div id="chat-thread" class="chat-thread" aria-live="polite"></div>
+      <div id="view" class="view chat-current chat-live" tabindex="-1"></div>
+
+      <form class="chat-composer" id="chat-composer" autocomplete="off">
+        <label class="chat-composer__label title-3" for="chat-input">说说你遇到的问题</label>
+        <div class="chat-chips" aria-label="快捷问题">
+          <button type="button" class="chip" data-action="chat-chip" data-text="我的 Wi-Fi 连不上">连不上网</button>
+          <button type="button" class="chip" data-action="chat-chip" data-text="我忘记了校园 Wi-Fi 密码">忘记密码</button>
+          <button type="button" class="chip" data-action="chat-chip" data-text="校园网套餐多少钱">套餐价格</button>
+          <button type="button" class="chip" data-action="chat-chip" data-text="我在校外打不开教务系统">校外访问校内资源</button>
+          <button type="button" class="chip" data-action="chat-chip" data-text="我想找人工帮忙">找人工</button>
+        </div>
+        <div class="chat-composer__row">
+          <input id="chat-input" type="text" maxlength="500" placeholder="例如：宿舍无线连上了，但网页打不开" aria-label="描述你的网络问题">
+          <button type="submit" class="btn btn--primary chat-send" aria-label="发送消息"><span>发送</span><svg class="ui-icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+        </div>
+        <p class="chat-composer__note">不需要懂网络术语。请勿在对话中输入密码或验证码。</p>
+      </form>
+
+      <p class="chat-foot">
+        排查建议仅供参考，账号认证请前往学校入口。
+        <button type="button" class="chat-foot__clear" data-action="clear">清除本次记录</button>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__signature">为松山湖校区同学，理清每一个网络小状况。</p>
+    <details class="about-disclosure">
+      <summary>关于与使用须知</summary>
+      <div>
+        <p>本工具依据校方公开资料和用户反馈提供排查参考；通用设备建议会另行标注，不构成官方答复，也不代表已经报修。</p>
+        <p>聊天排障不提交工单、不扫描校园网络、不修改设备设置。连接助手的操作由你主动发起，运行条件见该页面说明。</p>
+        <p class="footer__meta">资料核验基准日 2026-11-07 · 广东科技学院松山湖校区在校学生适用</p>
+      </div>
+    </details>
+  </footer>
+</div>
+
+<div class="speed-layer" id="speed-layer" hidden>
+  <div class="speed-dialog" role="dialog" aria-modal="true" aria-labelledby="speed-title">
+    <div class="speed-dialog__head">
+      <h2 class="speed-dialog__title" id="speed-title">网络测速</h2>
+      <button type="button" class="speed-dialog__close" data-action="speedtest-close" aria-label="关闭网络测速" title="关闭">
+        <svg class="ui-icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" focusable="false"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66a8,8,0,0,1,11.32-11.32L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
+      </button>
+    </div>
+    <div class="speed-dialog__body" id="speed-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="./data/knowledge.js"></script>
+<script src="./data/knowledge-base.js"></script>
+<script src="./data/diagnostics.js"></script>
+<script src="./js/session.js"></script>
+<script src="./js/diagnostics.js"></script>
+<script src="./js/engine.js"></script>
+<script src="./js/icons.js"></script>
+<script src="./js/ui.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/welcome.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>
