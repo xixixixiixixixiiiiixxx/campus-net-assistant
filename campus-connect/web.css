@@ -1,0 +1,42 @@
+:root { --muted:#62666b; }
+body { font-size:15px; line-height:1.5; user-select:text; }
+.app { height:100dvh; min-height:0; grid-template-columns:220px minmax(0,1fr); }
+.brand-caption,.small,.network-subtitle,.settings-note,.license-note { font-size:12px; }
+.brand-name,.nav button,.target,.network-title,.field,.description,.subtitle { font-size:14px; }
+.field input,.field select { font-size:16px; min-height:44px; padding:8px 10px; }
+button { min-height:44px; padding:8px 13px; font-size:14px; }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible { outline:3px solid #0a7a85; outline-offset:3px; }
+.field input:focus-visible { outline:3px solid #0a7a85; }
+.nav { gap:8px; }.nav button { height:48px; }.nav::before { height:48px; }
+.card { padding:22px; }.field-row { gap:16px; }.settings-note,.description { line-height:1.7; }
+.check { min-height:44px; align-items:center; }.check input { width:20px; height:20px; }
+.toggle { width:42px; height:26px; }.toggle::before { width:22px; height:22px; }.toggle:checked::before { left:18px; }
+.network-row button { min-height:44px; padding:6px 12px; font-size:13px; }
+.network-title { flex-wrap:wrap; }.network-name { overflow-wrap:anywhere; }
+.web-notice { display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center; padding:10px 26px; border-bottom:1px solid var(--line); background:var(--accent-soft); font-size:13px; }
+.web-notice a { color:#07616b; text-underline-offset:3px; min-height:30px; display:inline-flex; align-items:center; }
+#web-connection { flex:1; min-width:160px; }
+.portal-page>.row,.settings-actions,.header-actions { flex-wrap:wrap; gap:10px; }
+.portal-slot { min-height:200px; border-style:dashed; }.portal-slot .hint { max-width:480px; text-align:center; padding:20px; }
+.portal-address { overflow-wrap:anywhere; }.portal-address button { flex-shrink:0; }
+.version { white-space:nowrap; }.footer { font-size:13px; gap:8px; padding:10px 20px; }.status { overflow-wrap:anywhere; }
+.web-field-error { color:#a11c28; font-size:13px; line-height:1.6; }
+[aria-invalid="true"] { border-color:#a11c28!important; }
+[data-action="location"],[data-action="wifiSettings"],[data-action="ethernetSettings"],[data-action="broadbandSettings"],[data-action="networkConnections"],[data-action="chooseAuthClient"] { display:none!important; }
+.sidebar-footer .author { font-size:14px; }
+@media(max-width:760px) {
+  .app { grid-template-columns:1fr; grid-template-rows:auto minmax(0,1fr); }
+  .sidebar { padding:10px 14px; border-right:0; border-bottom:1px solid var(--line); }
+  .brand { margin-bottom:8px; gap:8px; }.brand-logo { width:32px; height:32px; border-radius:10px; }.brand-logo svg { width:23px; height:23px; }
+  .brand-caption,.sidebar-footer { display:none; }.brand-name { font-size:15px; }
+  .nav { flex-direction:row; gap:8px; }.nav::before { display:none; }.nav button { flex:1; justify-content:center; gap:6px; padding:8px 6px; font-size:13px; }
+  .nav button.active { background:var(--accent-soft); }.nav button svg { width:17px; }
+  .header { padding:16px; gap:10px; align-items:flex-start; }h1 { font-size:23px; }.subtitle { font-size:13px; }
+  .refresh { font-size:13px; padding:8px; }.web-notice { padding:8px 16px; gap:2px 14px; font-size:12px; }
+  .page { padding:16px; }.card { padding:16px; border-radius:12px; }.connection { gap:12px; }.connection-icon { width:42px; height:42px; }.connection-icon svg { width:27px; height:27px; }
+  h2 { font-size:20px; }.field-row { grid-template-columns:1fr; }.segment { flex-wrap:wrap; }.segment button { white-space:normal; flex:1; }
+  .settings-actions>button { flex:1; }.settings-actions>.muted { flex-basis:100%; font-size:12px; }
+  .portal-page>.row { gap:8px; }.portal-page>.row button { flex:1; min-width:120px; margin-left:0!important; }
+  .footer { align-items:flex-start; padding:8px 16px; }.footer .version { display:none; }.network-row { gap:8px; }
+}
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } }
